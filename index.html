@@ -346,7 +346,7 @@
                 del document['del-later']
 
             try:
-                collection = document.query["collection"]
+                collection = document.query["collection"].lower()
             except:
                 collection = ""
             if collection:
