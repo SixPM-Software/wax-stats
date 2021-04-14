@@ -164,7 +164,22 @@
                         a <= b
                         album <= a
                 return
-                    
+            
+            def load_drops(e):
+                del document['drop-btn']
+                rows = get_table_rows(collection)
+                print(rows)
+                if rows:
+                    pre = html.DIV(Class="album py-5 bg-light", id="album-div")
+                    album_cont = html.DIV(Class="container")
+                    album = html.DIV(Class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3")
+                    process_drop_info(album,rows)
+                    document['drop'] <= html.H2("Drops")
+                    document["drop"] <= pre
+                    pre <= album_cont
+                    album_cont <= album
+                else:
+                    document['drop'] <= html.H3("No active or upcoming drops at the moment.")
 
             def get_collection():
                 global collection
@@ -327,19 +342,9 @@
                     document['root'] <= html.BR()
                     document['root'] <= html.DIV(Class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg",id="drop")
 
-                    rows = get_table_rows(collection)
-                    print(rows)
-                    if rows:
-                        pre = html.DIV(Class="album py-5 bg-light", id="album-div")
-                        album_cont = html.DIV(Class="container")
-                        album = html.DIV(Class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3")
-                        process_drop_info(album,rows)
-                        document['drop'] <= html.H2("Drops")
-                        document["drop"] <= pre
-                        pre <= album_cont
-                        album_cont <= album
-                    else:
-                        document['drop'] <= html.H3("No active or upcoming drops at the moment.")
+                    drop_btn = html.BUTTON("Load Drops (will take a while)",Class="btn-lg px-4 me-sm-3 fw-bold",id="drop-btn")
+                    drop_btn.bind('click',load_drops)
+                    document['drop'] <= drop_btn
                     return
                 
                 document['doc-title'].text = f"{collection} returned no results"
