@@ -40,7 +40,7 @@
                         <form>
                         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                             
-                            <input type="text" class="form-control" name="collection" placeholder="Collection Name" id="collection-name">
+                            <input type="text" class="form-control" style="text-transform: lowercase;" name="collection" placeholder="Collection Name" id="collection-name">
                             <input type="submit" value="Search Collection"  id="search-btn" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">
                         </div>
                     </form>
@@ -140,9 +140,9 @@
                         c = html.DIV(Class="card-body bg-light")
                         display_data = json.loads(drop['display_data'])
                         if display_data.get("name"):
-                            paragraph = f"### {display_data['name']}\n**Drop ID:** {d_id}\n**Price:** {drop['listing_price']}\n**Claimed:** {drop['current_claimed']}/{drop['max_claimable']}"
+                            paragraph = f"### {display_data['name']}\n\n**Drop ID:** {d_id}\n\n**Price:** {drop['listing_price']}\n\n**Claimed:** {drop['current_claimed']}/{drop['max_claimable']}"
                         else:
-                            paragraph = f"### {asset['immutable_data']['name']}\n**Drop ID:** {d_id}\n**Price:** {drop['listing_price']}\n**Claimed:** {drop['current_claimed']}/{drop['max_claimable']}"
+                            paragraph = f"### {asset['immutable_data']['name']}\n\n**Drop ID:** {d_id}\n\n**Price:** {drop['listing_price']}\n\n**Claimed:** {drop['current_claimed']}/{drop['max_claimable']}"
                         mk,scripts = markdown.mark(paragraph)
                         d = html.P(Class="card-body")
                         d.html = mk
