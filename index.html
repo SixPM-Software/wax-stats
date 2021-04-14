@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Wax Collections - SixPM Software</title>
+        <title>Collections - SixPM Software</title>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js">
         </script>
@@ -34,7 +34,7 @@
             <div class="bg-dark text-secondary px-4 py-5 text-center">
                 <div class="py-5">
                     <img class="d-block mx-auto mb-4" src="img/gold stamp.png" alt="" width="72" height="72">
-                    <a href="/" class="nounderline"><h1 class="display-5 fw-bold text-white">Wax Collections (Beta)</h1></a>
+                    <a href="/" class="nounderline"><h1 class="display-5 fw-bold text-white">Collections (Alpha)</h1></a>
                     <div class="col-lg-6 mx-auto">
                         <p class="fs-5 mb-4">A simple portfolio for Atomic Collections</p>
                         <form>
@@ -328,6 +328,7 @@
                     document['root'] <= html.DIV(Class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg",id="drop")
 
                     rows = get_table_rows(collection)
+                    print(rows)
                     if rows:
                         pre = html.DIV(Class="album py-5 bg-light", id="album-div")
                         album_cont = html.DIV(Class="container")
