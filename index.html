@@ -207,12 +207,12 @@
                     page = 1
                     while True:
                         listings = ajax.ajax()
-                        url = f"https://wax.api.atomicassets.io/atomicmarket/v1/sales?state=1&collection_name={collection}&page={page}&limit=1000&order=desc&sort=created"
+                        url = f"https://wax.api.atomicassets.io/atomicmarket/v1/sales?state=1&collection_name={collection}&page={page}&limit=100&order=desc&sort=created"
                         listings.open('GET', url, False)
                         listings.send()
                         num = len(json.loads(listings.responseText)['data'])
                         listing_count += num
-                        if num < 1000:
+                        if num < 100:
                             break
                         else:
                             page += 1
